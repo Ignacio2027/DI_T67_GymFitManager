@@ -16,7 +16,6 @@ import javafx.util.StringConverter;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.util.List;
 
 public class HelloController {
 
@@ -27,11 +26,11 @@ public class HelloController {
             FXCollections.observableArrayList();
 
     private int filaEnEdicion = -1;
-    private List<Control> obligatorios;
 
     @FXML private MenuItem miNuevo, miGuardar, miEditar, miDuplicar;
     @FXML private MenuItem miBuscar, miBaja, miSalir, miAyuda;
     @FXML private MenuItem ciEditar, ciDuplicar, ciBaja;
+
     @FXML private CheckMenuItem miVerBarra;
     @FXML private ToolBar barra;
 
@@ -39,6 +38,7 @@ public class HelloController {
     @FXML private DatePicker fecha;
     @FXML private ComboBox<String> provincia;
     @FXML private ToggleGroup grupoSexo, grupoCuota;
+
     @FXML private FlowPane clases;
     @FXML private VBox panelAviso;
     @FXML private Label avisoTexto, estado;
@@ -65,6 +65,7 @@ public class HelloController {
         acel(miAyuda, "F1");
 
         fecha.setConverter(new StringConverter<LocalDate>() {
+
             @Override
             public String toString(LocalDate d) {
                 return d == null ? "" : FMT.format(d);
@@ -122,17 +123,15 @@ public class HelloController {
                 "José", "Martín Gil", "02/02/1950", "Senior"
         });
 
-        obligatorios = List.of(
-                nombre, apellidos, fecha, provincia, iban
-        );
-
         Platform.runLater(() -> nombre.requestFocus());
     }
 
     private void acel(MenuItem m, String combinacion) {
-        m.setAccelerator(
-                KeyCombination.keyCombination(combinacion)
-        );
+        if (m != null) {
+            m.setAccelerator(
+                    KeyCombination.keyCombination(combinacion)
+            );
+        }
     }
 
     @FXML
@@ -159,9 +158,13 @@ public class HelloController {
             return;
         }
 
-        LocalDate f = fecha.getConverter().fromString(
-                fecha.getEditor().getText()
-        );
+        LocalDate f = fecha.getValue();
+
+        if (f == null) {
+            f = fecha.getConverter().fromString(
+                    fecha.getEditor().getText()
+            );
+        }
 
         if (f == null) {
             error(fecha,
@@ -220,7 +223,7 @@ public class HelloController {
         apellidos.setText(s[1]);
         fecha.setValue(LocalDate.parse(s[2], FMT));
 
-        for (Toggle t : grupoCuota.getToggles()) {
+        for (var t : grupoCuota.getToggles()) {
             if (((RadioButton) t).getText().equals(s[3])) {
                 grupoCuota.selectToggle(t);
             }
@@ -350,6 +353,7 @@ public class HelloController {
 
     @FXML
     private void onCancelar() {
+
         boolean hayDatos =
                 !nombre.getText().isBlank()
                         || !apellidos.getText().isBlank()
@@ -357,6 +361,9 @@ public class HelloController {
 
         if (hayDatos) {
             onLimpiar();
+        } else {
+            limpiar();
+            estado.setText("Operación cancelada.");
         }
     }
 
@@ -384,7 +391,10 @@ public class HelloController {
     }
 
     private void quitarMarcas() {
-        for (Control c : obligatorios) {
+
+        for (Control c : new Control[]{
+                nombre, apellidos, fecha, provincia, iban
+        }) {
             c.getStyleClass().remove("campo-error");
         }
     }
@@ -406,7 +416,9 @@ public class HelloController {
         grupoCuota.selectToggle(grupoCuota.getToggles().get(0));
 
         for (Node n : clases.getChildren()) {
-            ((CheckBox) n).setSelected(false);
+            if (n instanceof CheckBox cb) {
+                cb.setSelected(false);
+            }
         }
 
         panelAviso.setVisible(false);
@@ -453,4 +465,3 @@ public class HelloController {
         a.showAndWait();
     }
 }
-

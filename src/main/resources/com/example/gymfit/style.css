@@ -2,21 +2,12 @@
 .root {
     -fx-font-family: "Segoe UI";
     -fx-font-size: 14px;
+    -fx-background-color: #F2F4F7;
     -fx-text-fill: #1B1B1B;
 }
 
-.fondo {
-    -fx-background-color: #F2F4F7;
-}
-
-.tarjeta {
-    -fx-background-color: white;
-    -fx-border-color: #F2F4F7;
-    -fx-padding: 18 22 18 22;
-}
-
 .titulo {
-    -fx-font-size: 22px;
+    -fx-font-size: 21px;
     -fx-font-weight: bold;
     -fx-text-fill: #1F4E79;
 }
@@ -25,58 +16,49 @@
     -fx-font-weight: bold;
 }
 
-.ayuda {
-    -fx-text-fill: #1B1B1B;
-}
-
-.text-input {
-    -fx-prompt-text-fill: #666666;
-}
-
-.campo-error {
-    -fx-border-color: #B3261E;
-    -fx-border-width: 2;
-    -fx-border-radius: 3;
+.tarjeta {
+    -fx-background-color: #F2F4F7;
+    -fx-padding: 16px;
 }
 
 .boton-principal {
     -fx-background-color: #1F4E79;
-    -fx-background-radius: 10;
     -fx-text-fill: white;
     -fx-font-weight: bold;
-    -fx-font-size: 15px;
-    -fx-padding: 11 28 11 28;
+    -fx-padding: 10px 20px;
+    -fx-cursor: hand;
 }
 
 .boton-principal:hover {
-    -fx-background-color: #173B5C;
+    -fx-opacity: 0.85;
 }
 
 .boton-secundario {
-    -fx-background-color: white;
-    -fx-border-color: #1F4E79;
-    -fx-border-width: 2;
-    -fx-border-radius: 10;
+    -fx-background-color: #F2F4F7;
     -fx-text-fill: #1F4E79;
-    -fx-font-weight: bold;
-    -fx-padding: 9 18 9 18;
+    -fx-border-color: #1F4E79;
+    -fx-border-radius: 5px;
+    -fx-padding: 9px 18px;
 }
 
 .boton-peligro {
-    -fx-background-color: white;
-    -fx-border-color: #B3261E;
-    -fx-border-width: 2;
-    -fx-border-radius: 10;
+    -fx-background-color: #F2F4F7;
     -fx-text-fill: #B3261E;
-    -fx-font-weight: bold;
-    -fx-padding: 9 18 9 18;
+    -fx-border-color: #B3261E;
+    -fx-border-radius: 5px;
+    -fx-padding: 9px 18px;
+}
+
+.campo-error {
+    -fx-border-color: #B3261E;
+    -fx-border-width: 2px;
 }
 
 .aviso {
-    -fx-background-color: white;
+    -fx-background-color: #F2F4F7;
     -fx-border-color: #B3261E;
-    -fx-border-width: 2;
-    -fx-padding: 8 12 8 12;
+    -fx-border-width: 1px;
+    -fx-padding: 10px;
 }
 
 .aviso-titulo {
@@ -85,38 +67,21 @@
 }
 
 .tool-bar {
-    -fx-background-color: white;
-    -fx-padding: 4 12 4 12;
-}
-
-.tool-bar .button {
-    -fx-background-color: transparent;
-    -fx-font-size: 12px;
-    -fx-text-fill: #1B1B1B;
-}
-
-.tool-bar .button:hover {
-    -fx-background-color: #E6ECF3;
-}
-
-.tool-bar .texto-peligro {
-    -fx-text-fill: #B3261E;
+    -fx-background-color: #F2F4F7;
+    -fx-padding: 8px;
 }
 
 .icono {
     -fx-fill: transparent;
     -fx-stroke: #1F4E79;
-    -fx-stroke-width: 2;
+    -fx-stroke-width: 2px;
 }
 
 .icono-peligro {
     -fx-stroke: #B3261E;
 }
 
-.table-view .column-header-background {
-    -fx-background-color: #1F4E79;
-}
-
+.table-view .column-header-background,
 .table-view .column-header,
 .table-view .filler {
     -fx-background-color: #1F4E79;
@@ -128,7 +93,7 @@
 }
 
 .table-row-cell {
-    -fx-cell-size: 30px;
+    -fx-cell-size: 32px;
 }
 
 .table-row-cell:filled:selected {
@@ -140,6 +105,6 @@
 }
 
 .barra-estado {
-    -fx-background-color: white;
-    -fx-padding: 6 16 6 16;
+    -fx-background-color: #F2F4F7;
+    -fx-padding: 8px 15px;
 }

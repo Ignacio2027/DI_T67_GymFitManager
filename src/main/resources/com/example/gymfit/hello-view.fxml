@@ -1,6 +1,4 @@
 
-<?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -19,103 +17,92 @@
     <top>
         <VBox>
             <MenuBar>
-                <Menu text="_Archivo">
-                    <MenuItem fx:id="miNuevo" text="Nuevo socio" onAction="#onNuevo"/>
-                    <MenuItem fx:id="miGuardar" text="Guardar socio" onAction="#onGuardar"/>
-                    <SeparatorMenuItem/>
-                    <MenuItem fx:id="miSalir" text="Salir" onAction="#onSalir"/>
-                </Menu>
+                <menus>
+                    <Menu text="_Archivo">
+                        <items>
+                            <MenuItem text="Nuevo socio" onAction="#onNuevo"/>
+                            <MenuItem text="Guardar socio" onAction="#onGuardar"/>
+                            <SeparatorMenuItem/>
+                            <MenuItem text="Salir" onAction="#onSalir"/>
+                        </items>
+                    </Menu>
 
-                <Menu text="_Editar">
-                    <MenuItem fx:id="miEditar" text="Editar socio" onAction="#onEditar"/>
-                    <MenuItem fx:id="miDuplicar" text="Duplicar socio" onAction="#onDuplicar"/>
-                    <MenuItem fx:id="miBuscar" text="Buscar socio" onAction="#onBuscar"/>
-                    <SeparatorMenuItem/>
-                    <MenuItem fx:id="miBaja" text="Dar de baja" onAction="#onBaja"/>
-                </Menu>
+                    <Menu text="_Editar">
+                        <items>
+                            <MenuItem text="Editar socio" onAction="#onEditar"/>
+                            <MenuItem text="Duplicar socio" onAction="#onDuplicar"/>
+                            <MenuItem text="Buscar socio" onAction="#onBuscar"/>
+                            <SeparatorMenuItem/>
+                            <MenuItem text="Dar de baja" onAction="#onBaja"/>
+                        </items>
+                    </Menu>
 
-                <Menu text="_Ver">
-                    <CheckMenuItem fx:id="miVerBarra"
-                                   text="Barra de herramientas"
-                                   selected="true"
-                                   onAction="#onVerBarra"/>
-                </Menu>
+                    <Menu text="_Ver">
+                        <items>
+                            <CheckMenuItem fx:id="miVerBarra"
+                                           text="Barra de herramientas"
+                                           selected="true"
+                                           onAction="#onVerBarra"/>
+                        </items>
+                    </Menu>
 
-                <Menu text="_Socios">
-                    <MenuItem text="Añadir etiqueta" onAction="#onEtiqueta"/>
-                    <MenuItem text="Ver notas" onAction="#onNotas"/>
-                </Menu>
+                    <Menu text="_Socios">
+                        <items>
+                            <MenuItem text="Añadir etiqueta" onAction="#onEtiqueta"/>
+                            <MenuItem text="Ver notas" onAction="#onNotas"/>
+                        </items>
+                    </Menu>
 
-                <Menu text="_Herramientas">
-                    <MenuItem text="Exportar lista…" onAction="#onExportar"/>
-                </Menu>
+                    <Menu text="_Herramientas">
+                        <items>
+                            <MenuItem text="Exportar lista" onAction="#onExportar"/>
+                        </items>
+                    </Menu>
 
-                <Menu text="A_yuda">
-                    <MenuItem fx:id="miAyuda"
-                              text="Guía de uso"
-                              onAction="#onAyuda"/>
-                </Menu>
+                    <Menu text="A_yuda">
+                        <items>
+                            <MenuItem text="Guía de uso" onAction="#onAyuda"/>
+                        </items>
+                    </Menu>
+                </menus>
             </MenuBar>
 
             <ToolBar fx:id="barra">
-                <Button text="Nuevo socio" contentDisplay="TOP"
-                        onAction="#onNuevo">
-                    <graphic>
-                        <SVGPath styleClass="icono"
-                                 content="M12 4V20M4 12H20"/>
-                    </graphic>
-                    <tooltip>
-                        <Tooltip text="Nuevo socio (Ctrl+N)"/>
-                    </tooltip>
-                </Button>
+                <items>
+                    <Button text="Nuevo socio" onAction="#onNuevo">
+                        <tooltip>
+                            <Tooltip text="Nuevo socio (Ctrl+N)"/>
+                        </tooltip>
+                    </Button>
 
-                <Button text="Guardar socio" contentDisplay="TOP"
-                        onAction="#onGuardar">
-                    <graphic>
-                        <SVGPath styleClass="icono"
-                                 content="M4 4H17L20 7V20H4Z M8 4V9H16V4 M7 20V14H17V20"/>
-                    </graphic>
-                    <tooltip>
-                        <Tooltip text="Guardar (Ctrl+S)"/>
-                    </tooltip>
-                </Button>
+                    <Button text="Guardar" onAction="#onGuardar">
+                        <tooltip>
+                            <Tooltip text="Guardar (Ctrl+S)"/>
+                        </tooltip>
+                    </Button>
 
-                <Button text="Editar socio" contentDisplay="TOP"
-                        onAction="#onEditar">
-                    <graphic>
-                        <SVGPath styleClass="icono"
-                                 content="M4 20L5 15L16 4L20 8L9 19Z M14 6L18 10"/>
-                    </graphic>
-                    <tooltip>
-                        <Tooltip text="Editar (Ctrl+E)"/>
-                    </tooltip>
-                </Button>
+                    <Button text="Editar" onAction="#onEditar">
+                        <tooltip>
+                            <Tooltip text="Editar (Ctrl+E)"/>
+                        </tooltip>
+                    </Button>
 
-                <Button text="Buscar socio" contentDisplay="TOP"
-                        onAction="#onBuscar">
-                    <graphic>
-                        <SVGPath styleClass="icono"
-                                 content="M10 3A7 7 0 1 0 10 17A7 7 0 1 0 10 3Z M15 15L21 21"/>
-                    </graphic>
-                    <tooltip>
-                        <Tooltip text="Buscar (Ctrl+F)"/>
-                    </tooltip>
-                </Button>
+                    <Button text="Buscar" onAction="#onBuscar">
+                        <tooltip>
+                            <Tooltip text="Buscar (Ctrl+F)"/>
+                        </tooltip>
+                    </Button>
 
-                <Separator orientation="VERTICAL"/>
+                    <Separator orientation="VERTICAL"/>
 
-                <Button text="Dar de baja"
-                        styleClass="texto-peligro"
-                        contentDisplay="TOP"
-                        onAction="#onBaja">
-                    <graphic>
-                        <SVGPath styleClass="icono icono-peligro"
-                                 content="M4 7H20 M9 7V4H15V7 M6 7L7 21H17L18 7 M10 11V17 M14 11V17"/>
-                    </graphic>
-                    <tooltip>
-                        <Tooltip text="Dar de baja (Supr)"/>
-                    </tooltip>
-                </Button>
+                    <Button text="Dar de baja"
+                            styleClass="texto-peligro"
+                            onAction="#onBaja">
+                        <tooltip>
+                            <Tooltip text="Dar de baja (Supr)"/>
+                        </tooltip>
+                    </Button>
+                </items>
             </ToolBar>
         </VBox>
     </top>
@@ -128,78 +115,98 @@
 
             <VBox styleClass="tarjeta"
                   spacing="14"
-                  minWidth="680"
-                  prefWidth="680">
+                  minWidth="480"
+                  prefWidth="520">
 
                 <Label styleClass="titulo" text="Alta de socio nuevo"/>
 
                 <GridPane hgap="12" vgap="14">
                     <columnConstraints>
-                        <ColumnConstraints minWidth="150" prefWidth="160"/>
+                        <ColumnConstraints minWidth="140"/>
                         <ColumnConstraints hgrow="ALWAYS"/>
                     </columnConstraints>
 
-                    <Label text="Nombre" styleClass="etiqueta"
-                           GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-                    <TextField fx:id="nombre" promptText="Ej.: Ana"
-                               GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                    <Label text="Nombre"
+                           styleClass="etiqueta"
+                           GridPane.rowIndex="0"/>
+                    <TextField fx:id="nombre"
+                               promptText="Ej.: Ana"
+                               GridPane.rowIndex="0"
+                               GridPane.columnIndex="1"/>
 
-                    <Label text="Apellidos" styleClass="etiqueta"
-                           GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-                    <TextField fx:id="apellidos" promptText="Ej.: García López"
-                               GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                    <Label text="Apellidos"
+                           styleClass="etiqueta"
+                           GridPane.rowIndex="1"/>
+                    <TextField fx:id="apellidos"
+                               promptText="Ej.: García López"
+                               GridPane.rowIndex="1"
+                               GridPane.columnIndex="1"/>
 
-                    <Label text="Fecha de nacimiento" styleClass="etiqueta"
-                           GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-                    <DatePicker fx:id="fecha" promptText="Ej.: 12/03/1990"
-                                GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                    <Label text="Fecha de nacimiento"
+                           styleClass="etiqueta"
+                           GridPane.rowIndex="2"/>
+                    <DatePicker fx:id="fecha"
+                                promptText="Selecciona una fecha"
+                                GridPane.rowIndex="2"
+                                GridPane.columnIndex="1"/>
 
-                    <Label text="Sexo" styleClass="etiqueta"
-                           GridPane.rowIndex="3" GridPane.columnIndex="0"/>
-                    <HBox spacing="16"
-                          GridPane.rowIndex="3" GridPane.columnIndex="1">
+                    <Label text="Sexo"
+                           styleClass="etiqueta"
+                           GridPane.rowIndex="3"/>
+                    <HBox spacing="12"
+                          GridPane.rowIndex="3"
+                          GridPane.columnIndex="1">
                         <RadioButton text="Mujer" toggleGroup="$grupoSexo"/>
                         <RadioButton text="Hombre" toggleGroup="$grupoSexo"/>
                         <RadioButton text="Otro" toggleGroup="$grupoSexo"/>
                     </HBox>
 
-                    <Label text="Provincia" styleClass="etiqueta"
-                           GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                    <Label text="Provincia"
+                           styleClass="etiqueta"
+                           GridPane.rowIndex="4"/>
                     <ComboBox fx:id="provincia"
-                              promptText="Seleccione una provincia"
-                              prefWidth="260"
-                              GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                              promptText="Selecciona provincia"
+                              maxWidth="Infinity"
+                              GridPane.rowIndex="4"
+                              GridPane.columnIndex="1"/>
 
-                    <Label text="Tipo de cuota" styleClass="etiqueta"
-                           GridPane.rowIndex="5" GridPane.columnIndex="0"/>
-                    <HBox spacing="14"
-                          GridPane.rowIndex="5" GridPane.columnIndex="1">
+                    <Label text="Tipo de cuota"
+                           styleClass="etiqueta"
+                           GridPane.rowIndex="5"/>
+                    <VBox spacing="6"
+                          GridPane.rowIndex="5"
+                          GridPane.columnIndex="1">
                         <RadioButton text="Básica" toggleGroup="$grupoCuota"/>
                         <RadioButton text="Plus" toggleGroup="$grupoCuota"/>
                         <RadioButton text="Premium" toggleGroup="$grupoCuota"/>
                         <RadioButton text="Joven" toggleGroup="$grupoCuota"/>
                         <RadioButton text="Senior" toggleGroup="$grupoCuota"/>
-                    </HBox>
+                    </VBox>
 
-                    <Label text="Clases (opcional)" styleClass="etiqueta"
-                           GridPane.rowIndex="6" GridPane.columnIndex="0"/>
-                    <FlowPane fx:id="clases"
-                              hgap="18" vgap="8"
-                              prefWrapLength="380"
-                              GridPane.rowIndex="6" GridPane.columnIndex="1">
-                        <CheckBox text="Spinning"/>
-                        <CheckBox text="Yoga"/>
-                        <CheckBox text="Pilates"/>
-                        <CheckBox text="Zumba"/>
-                        <CheckBox text="CrossFit"/>
-                        <CheckBox text="Natación"/>
+                    <Label text="Clases"
+                           styleClass="etiqueta"
+                           GridPane.rowIndex="6"/>
+                    <FlowPane hgap="12"
+                              vgap="8"
+                              GridPane.rowIndex="6"
+                              GridPane.columnIndex="1">
+                        <children>
+                            <CheckBox text="Spinning"/>
+                            <CheckBox text="Yoga"/>
+                            <CheckBox text="Pilates"/>
+                            <CheckBox text="Zumba"/>
+                            <CheckBox text="CrossFit"/>
+                            <CheckBox text="Natación"/>
+                        </children>
                     </FlowPane>
 
-                    <Label text="IBAN" styleClass="etiqueta"
-                           GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+                    <Label text="IBAN"
+                           styleClass="etiqueta"
+                           GridPane.rowIndex="7"/>
                     <TextField fx:id="iban"
                                promptText="Ej.: ES91 2100 0418 4502 0005 1332"
-                               GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+                               GridPane.rowIndex="7"
+                               GridPane.columnIndex="1"/>
                 </GridPane>
 
                 <VBox fx:id="panelAviso"
@@ -212,61 +219,73 @@
                     <Label fx:id="avisoTexto" wrapText="true"/>
                 </VBox>
 
-                <HBox alignment="CENTER_LEFT" spacing="10">
-                    <padding>
-                        <Insets top="10"/>
-                    </padding>
-
-                    <Button styleClass="boton-peligro"
-                            text="Limpiar formulario"
+                <HBox alignment="CENTER_LEFT" spacing="8">
+                    <Button text="Limpiar"
+                            styleClass="boton-peligro"
                             onAction="#onLimpiar"/>
 
                     <Region HBox.hgrow="ALWAYS"/>
 
-                    <Button styleClass="boton-secundario"
-                            text="Cancelar"
+                    <Button text="Cancelar"
+                            styleClass="boton-secundario"
                             onAction="#onCancelar"/>
 
-                    <Button styleClass="boton-principal"
-                            text="Guardar socio"
+                    <Button text="Guardar socio"
+                            styleClass="boton-principal"
                             defaultButton="true"
                             onAction="#onGuardar"/>
                 </HBox>
             </VBox>
 
             <VBox styleClass="tarjeta"
-                  spacing="10"
+                  spacing="12"
                   HBox.hgrow="ALWAYS">
 
                 <Label styleClass="titulo" text="Socios registrados"/>
 
-                <Label styleClass="ayuda"
-                       text="Haz clic derecho sobre un socio para ver sus acciones."/>
+                <Label text="Selecciona un socio para consultar sus datos."
+                       styleClass="ayuda"
+                       wrapText="true"/>
 
                 <TableView fx:id="tabla" VBox.vgrow="ALWAYS">
                     <columns>
-                        <TableColumn fx:id="colNombre" text="Nombre"/>
-                        <TableColumn fx:id="colApellidos" text="Apellidos"/>
-                        <TableColumn fx:id="colFecha" text="Fecha de nacimiento"/>
-                        <TableColumn fx:id="colCuota" text="Cuota"/>
+                        <TableColumn fx:id="colNombre"
+                                     text="Nombre"
+                                     prefWidth="100"/>
+                        <TableColumn fx:id="colApellidos"
+                                     text="Apellidos"
+                                     prefWidth="120"/>
+                        <TableColumn fx:id="colFecha"
+                                     text="Fecha de nacimiento"
+                                     prefWidth="130"/>
+                        <TableColumn fx:id="colCuota"
+                                     text="Cuota"
+                                     prefWidth="90"/>
                     </columns>
 
                     <contextMenu>
                         <ContextMenu>
-                            <MenuItem fx:id="ciEditar"
-                                      text="Editar socio"
-                                      onAction="#onEditar"/>
-                            <MenuItem fx:id="ciDuplicar"
-                                      text="Duplicar socio"
-                                      onAction="#onDuplicar"/>
-                            <MenuItem text="Añadir etiqueta"
-                                      onAction="#onEtiqueta"/>
-                            <MenuItem text="Ver notas"
-                                      onAction="#onNotas"/>
-                            <SeparatorMenuItem/>
-                            <MenuItem fx:id="ciBaja"
-                                      text="Dar de baja"
-                                      onAction="#onBaja"/>
+                            <items>
+                                <MenuItem fx:id="ciEditar"
+                                          text="Editar socio"
+                                          onAction="#onEditar"/>
+
+                                <MenuItem fx:id="ciDuplicar"
+                                          text="Duplicar socio"
+                                          onAction="#onDuplicar"/>
+
+                                <MenuItem text="Añadir etiqueta"
+                                          onAction="#onEtiqueta"/>
+
+                                <MenuItem text="Ver notas"
+                                          onAction="#onNotas"/>
+
+                                <SeparatorMenuItem/>
+
+                                <MenuItem fx:id="ciBaja"
+                                          text="Dar de baja"
+                                          onAction="#onBaja"/>
+                            </items>
                         </ContextMenu>
                     </contextMenu>
                 </TableView>
@@ -276,8 +295,12 @@
 
     <bottom>
         <HBox styleClass="barra-estado">
+            <padding>
+                <Insets top="8" right="15" bottom="8" left="15"/>
+            </padding>
+
             <Label fx:id="estado"
-                   text="Listo. Pulsa Ctrl+S para guardar el socio."/>
+                   text="Listo. Pulsa Ctrl+S para guardar un socio."/>
         </HBox>
     </bottom>
 
